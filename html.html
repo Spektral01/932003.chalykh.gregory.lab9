@@ -1,0 +1,86 @@
+<!Doctype HTML>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css.css">
+        <title> 1.4 </title>
+    </head>
+    <body>
+       <div id="Calculator">
+            <div id="screen">
+                0
+            </div>
+            <div class="calc">
+                <div id="rows">
+                    <div class="row">
+                        <button type="button" class="calc_btn">7</button>
+                        <button type="button" class="calc_btn">8</button>   
+                        <button type="button" class="calc_btn">9</button>
+                        <button type="button" class="calc_btn calc_btn_operator"> / </button>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="calc_btn">4</button>
+                        <button type="button" class="calc_btn">5</button>   
+                        <button type="button" class="calc_btn">6</button>
+                        <button type="button" class="calc_btn calc_btn_operator"> * </button>
+                    </div>
+                    <div class="row">
+                        <button type="button" class="calc_btn">1</button>
+                        <button type="button" class="calc_btn">2</button>   
+                        <button type="button" class="calc_btn">3</button>
+                        <button type="button" class="calc_btn calc_btn_operator"> - </button> 
+                    </div>
+                    <div class="row">
+                        <button type="button" style="width:116px ; height: 55px;" class="calc_btn">0</button>
+                        <button type="button" class="calc_btn">.</button>   
+                        <button type="button" class="calc_btn calc_btn_operator">+</button> 
+                    </div>
+                </div>
+
+                <div id="Column">
+                    <div class="Colu">
+                        <button type="button" class="calc_btn calc_btn_reset">C</button>
+                        <button type="button" class="calc_btn calc_btn_equal"><-</button>   
+                        <button type="button" style="width:55px ; height: 120px;" class="calc_btn">=</button>
+                    </div>
+                </div>
+            </div>
+       </div>
+
+       <script >
+           const result = document.querySelector('#screen');
+           const calc = document.querySelector('.calc');
+
+           calc.addEventListener('click', function(event){
+            const value = event.target.innerText;
+            content=document.getElementById("screen").innerHTML
+
+            console.log(event.target);
+            console.log(content);
+
+            if(!event.target.classList.contains('calc_btn')) return;
+
+            switch(value){
+                case 'C':
+                    result.innerText = '0';
+                    break;
+                case '=':
+                    result.innerText = eval(result.innerText).toFixed(2);
+                    breal;
+                case '<-':
+                    result.innerText=content.substring(0, content.length - 1);
+                    if(result.innerText === '') result.innerText = '0';
+                    break;
+                default:
+                    result.innerText+=value;
+
+            }
+
+
+           });
+           
+
+
+       </script>
+    </body>
+</html> 
